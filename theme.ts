@@ -1,6 +1,6 @@
 'use client';
 
-import { createTheme, rem } from '@mantine/core';
+import { createTheme, CSSVariablesResolver, rem } from '@mantine/core';
 
 export const theme = createTheme({
   fontFamily: 'var(--font-kumbh-sans)',
@@ -52,4 +52,37 @@ export const theme = createTheme({
     1300: rem(104),
     1600: rem(128),
   },
+
+  fontSizes: {
+    1: rem(44),
+    2: rem(28),
+    3: rem(16),
+    4: rem(15),
+    5: rem(13),
+    6: rem(12),
+  },
+
+  lineHeights: {
+    1: rem(48),
+    2: rem(32),
+    3: rem(26),
+    5: rem(16),
+    6: rem(15),
+  },
+
+  other: {
+    tracking: {
+      5: rem(2),
+      6: rem(1.85),
+    },
+  },
+});
+
+export const resolver: CSSVariablesResolver = (theme) => ({
+  variables: {
+    '--mantine-tracking-5': theme.other.tracking['5'],
+    '--mantine-tracking-6': theme.other.tracking['6'],
+  },
+  dark: {},
+  light: {},
 });

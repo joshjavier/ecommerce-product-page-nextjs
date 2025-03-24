@@ -3,7 +3,7 @@ import '@mantine/core/styles.css';
 import React from 'react';
 import { Kumbh_Sans } from 'next/font/google';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
-import { theme } from '../theme';
+import { resolver, theme } from '../theme';
 
 export const metadata = {
   title: 'Frontend Mentor | E-commerce product page',
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: any }) {
   return (
     <html lang="en" {...mantineHtmlProps} className={kumbhSans.variable}>
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript forceColorScheme="light" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <meta
           name="viewport"
@@ -30,7 +30,9 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme} cssVariablesResolver={resolver} forceColorScheme="light">
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
