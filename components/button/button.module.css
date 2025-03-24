@@ -1,0 +1,12 @@
+.button {
+  --button-bg: var(--mantine-color-orange-5);
+  --button-hover: var(--mantine-color-orange-3);
+  --button-color: var(--mantine-color-grey-9) !important;
+  --button-height: var(--mantine-spacing-700);
+  --button-fz: var(--mantine-font-size-3);
+  box-shadow: 0 20px 50px -20px alpha(var(--mantine-color-orange-5), 0.75);
+
+  & [data-position='left'] {
+    margin-inline-end: var(--mantine-spacing-200);
+  }
+}
