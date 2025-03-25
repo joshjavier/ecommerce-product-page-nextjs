@@ -1,0 +1,24 @@
+.root {
+  container-type: inline-size;
+}
+
+.wrapper {
+  --input-height: var(--mantine-spacing-700) !important;
+}
+
+.section {
+  & > * {
+    width: 100%;
+    height: 100%;
+  }
+
+  &[data-position='left'] > * {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &[data-position='right'] > * {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
