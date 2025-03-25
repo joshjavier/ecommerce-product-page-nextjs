@@ -8,7 +8,7 @@ import classes from './quantity-box.module.css';
 
 function IncrementButton({ onClick }: { onClick?: () => void }) {
   return (
-    <ActionIcon variant="subtle" onClick={onClick} aria-label="Increment by 1" size="input-md">
+    <ActionIcon variant="transparent" onClick={onClick} aria-label="Increment by 1" size="input-md">
       <IconPlus width="12" height="12" />
     </ActionIcon>
   );
@@ -16,7 +16,7 @@ function IncrementButton({ onClick }: { onClick?: () => void }) {
 
 function DecrementButton({ onClick }: { onClick?: () => void }) {
   return (
-    <ActionIcon variant="subtle" onClick={onClick} aria-label="Decrement by 1" size="input-md">
+    <ActionIcon variant="transparent" onClick={onClick} aria-label="Decrement by 1" size="input-md">
       <IconMinus width="12" height="12" />
     </ActionIcon>
   );
@@ -35,9 +35,13 @@ export function QuantityBox() {
       hideControls
       leftSection={<DecrementButton onClick={() => handlersRef.current?.decrement()} />}
       rightSection={<IncrementButton onClick={() => handlersRef.current?.increment()} />}
+      rightSectionWidth="var(--input-height)"
       handlersRef={handlersRef}
-      size="md"
-      classNames={{ wrapper: classes.wrapper, section: classes.section, root: classes.root }}
+      classNames={{
+        root: classes.root,
+        wrapper: classes.wrapper,
+        section: classes.section,
+      }}
     />
   );
 }
